@@ -1,22 +1,23 @@
 // variables to keep track of quiz state
 var currentQuestionIndex = 0;
 //time left value here
-// var time = ;
+var time = 75;
 var timerId;
 
 // variables to reference DOM elements
-var questionsEl = document.getElementById('');
-var timerEl = document.getElementById('');
-var choicesEl = document.getElementById('');
-var submitBtn = document.getElementById('');
-var startBtn = document.getElementById('');
-var initialsEl = document.getElementById('');
-var feedbackEl = document.getElementById('');
+var questionsEl = document.getElementById('questions');
+var timerEl = document.getElementById('timer');
+var choicesEl = document.getElementById('choices');
+var submitBtn = document.getElementById('submit');
+var startBtn = document.getElementById('start');
+var initialsEl = document.getElementById('initials');
+var feedbackEl = document.getElementById('feedback');
 
+startBtn.addEventListener("click", startQuiz());
 
 function startQuiz() {
   // hide start screen
-  var startScreenEl = document.getElementById('');
+  var startScreenEl = document.getElementById('start-screen');
   startScreenEl.setAttribute('class', '');
 
   // un-hide questions section
@@ -60,7 +61,7 @@ function getQuestion() {
 function questionClick(event) {
   var buttonEl = event.target;
 
-  // if the clicked element is not a choice button, do nothing.
+  // if the clicked element is not a choice button, do  nothing.
   if (!buttonEl.matches('.choice')) {
     return;
   }
@@ -71,7 +72,9 @@ function questionClick(event) {
 
 
     // penalize time
-    
+    else {
+
+    }
   
    
 
@@ -130,7 +133,7 @@ function saveHighscore() {
     // get saved scores from localstorage, or if not any, set to empty array
     
     var highscores =
-      JSON.parse() /* what would go inside the PARSE??*/ || [];
+      JSON.parse(localStorage.getItem("highscores")) || [];
 
     // format new score object for current user
     var newScore = {
@@ -140,7 +143,7 @@ function saveHighscore() {
 
     // save to localstorage
     highscores.push(newScore);
-    window.localStorage.setItem('highscores', JSON.stringify(/* What would we put inside STRINGIFY? */));
+    window.localStorage.setItem('highscores', JSON.stringify('highscores'));
 
     // redirect to next page
     window.location.href = '';
