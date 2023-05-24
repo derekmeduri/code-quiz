@@ -3,6 +3,7 @@ var currentQuestionIndex = 0;
 //time left value here
 var time = 75;
 var timerId;
+//var timePenalty = 15;
 
 // variables to reference DOM elements
 var questionsEl = document.getElementById('questions');
@@ -18,10 +19,10 @@ startBtn.addEventListener("click", startQuiz());
 function startQuiz() {
   // hide start screen
   var startScreenEl = document.getElementById('start-screen');
-  startScreenEl.setAttribute('class', '');
+  startScreenEl.setAttribute('class', 'hide');
 
   // un-hide questions section
-  questionsEl.removeAttribute('');
+  questionsEl.removeAttribute('hidden');
 
   // start timer
   timerId = setInterval(clockTick, 1000);
@@ -38,7 +39,7 @@ function getQuestion() {
 
   // update title with current question
   var titleEl = document.getElementById('');
-  titleEl.textContent = ; //think dot notation
+  titleEl.textContent = questions[currentQuestionIndex].title;
 
   // clear out any old question choices
   choicesEl.innerHTML = '';
@@ -72,17 +73,19 @@ function questionClick(event) {
 
 
     // penalize time
-    else {
+     time--;
 
     }
   
    
 
     // display new time on page
-   
+   timerEl.textContent = time;
 
   // flash right/wrong feedback on page for half a second
- 
+ if ( .textContent == questions.[currentQuestionIndex].answer){
+  feedbackEl.removeAttribute('hide'); 
+ }
 
   // move to next question
   
@@ -128,7 +131,7 @@ function saveHighscore() {
   var initials = initialsEl.value.trim();
 
   // make sure value wasn't empty
-  if () {
+  if (initions <= 0) {
 
     // get saved scores from localstorage, or if not any, set to empty array
     
