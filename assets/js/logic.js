@@ -48,6 +48,7 @@ function getQuestion() {
   for (var i = 0; i < currentQuestion.choices.length; i++) {
     // create new button for each choice
     var choice = currentQuestion.choices[i];
+    //
     console.log(choice);
     var choiceNode = document.createElement("button");
     choiceNode.setAttribute("class", "choice");
@@ -63,31 +64,39 @@ function getQuestion() {
 function questionClick(event) {
   var buttonEl = event.target;
   //console.log(buttonEl) see what that logs and then check against that, may need something else after the buttonEl
+  //logs what button we clicked.
   console.log(buttonEl.value);
   // if the clicked element is not a choice button, do  nothing.
   if (!buttonEl.matches(".choice")) {
     return;
   }
 
-  // check if user guessed wrong
+  // check if user guessed wrong- easier than checking if user got it right.
   if (buttonEl.value !== questions[currentQuestionIndex].answer) {
+    //console log to see if we get it right or wrong "testing" prints when
     console.log("testing");
-    // penalize time subtracts and displays at same times
+    // -= penalize time subtracts and displays at same times
     time -= timePenalty;
+    //show new time on page attached to timer element
     timerEl.textContent = time;
   }
 
-  // display new time on page
-
   // flash right/wrong feedback on page for half a second
-  // //if (buttonEl.textContent === questions.currentQuestionIndex.answer) {
-  //   feedbackEl.removeAttribute("class");
-  // }
-
+  if (buttonEl.value !== questions[currentQuestionIndex].answer) {
+    feedbackEl.removeAttribute("class");
+    var createEl = document.createElement("div");
+    createEl.textContent = "Sorry, that is incorrect.";
+  } else {
+    feedbackEl.removeAttribute("class");
+    var createEl = document.createElement("div");
+    createEl.textContent = "That is correct!";
+  }
+  feedbackEl.append(createEl);
   // move to next question
   currentQuestionIndex++;
 
-  console.log(currentQuestionIndex);
+  //log to make sure we are progessing through questions
+  //console.log(currentQuestionIndex);
 
   // check if we've run out of questions or if time ran out?
   if (time <= 0 || questions.length === currentQuestionIndex) {
@@ -111,6 +120,9 @@ function quizEnd() {
 
   // hide questions section
   questionsEl.setAttribute("class", "hide");
+
+  // hide feedback
+  feedbackEl.setAttribute("class", "hide");
 }
 
 function clockTick() {
