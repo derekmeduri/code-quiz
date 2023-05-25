@@ -140,8 +140,9 @@ function clockTick() {
 function saveHighscore() {
   // get value of input box
   var initials = initialsEl.value.trim();
-
+  console.log(initials);
   // make sure value wasn't empty
+
   if (initials !== "") {
     // get saved scores from localstorage, or if not any, set to empty array
 
@@ -150,11 +151,14 @@ function saveHighscore() {
     // format new score object for current user
     var newScore = {
       score: time,
-      initials: initials,
+      initials: initials.value,
     };
-
-    // save to localstorage
+    //logging new score to see if it wokrs.
+    console.log(newScore);
+    // save to localstorage - not a function in browser?
     highscores.push(newScore);
+    //logging highscore
+    console.log(highscores);
     window.localStorage.setItem("highscores", JSON.stringify("highscores"));
 
     // redirect to next page
