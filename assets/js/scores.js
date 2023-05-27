@@ -17,7 +17,7 @@ function printHighscores() {
 }
 
 function clearHighscores() {
-  window.localStorage.removeItem("");
+  window.localStorage.removeItem("highscores");
   window.location.reload();
 }
 

@@ -63,9 +63,6 @@ function getQuestion() {
 
 function questionClick(event) {
   var buttonEl = event.target;
-  //console.log(buttonEl) see what that logs and then check against that, may need something else after the buttonEl
-  //logs what button we clicked.
-  console.log(buttonEl.value);
   // if the clicked element is not a choice button, do  nothing.
   if (!buttonEl.matches(".choice")) {
     return;
@@ -136,12 +133,12 @@ function clockTick() {
     quizEnd();
   }
 }
+//declaring highscores as empty array
+var highscores = [];
 
 function saveHighscore() {
   // get value of input box
-  var initials = initialsEl.value.trim();
-  console.log(initials);
-  // make sure value wasn't empty
+  var initials = initialsEl.value;
 
   if (initials !== "") {
     // get saved scores from localstorage, or if not any, set to empty array
@@ -151,7 +148,7 @@ function saveHighscore() {
     // format new score object for current user
     var newScore = {
       score: time,
-      initials: initials.value,
+      initials: initials,
     };
     //logging new score to see if it wokrs.
     console.log(newScore);
@@ -159,10 +156,10 @@ function saveHighscore() {
     highscores.push(newScore);
     //logging highscore
     console.log(highscores);
-    window.localStorage.setItem("highscores", JSON.stringify("highscores"));
+    window.localStorage.setItem("highscores", JSON.stringify(highscores));
 
     // redirect to next page
-    window.location.href = "";
+    window.location.href = "highscores.html";
   }
 }
 

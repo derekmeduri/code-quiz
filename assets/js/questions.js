@@ -1,53 +1,34 @@
 // list of all questions, choices, and answers
 var questions = [
   {
-    title: "Test Question",
+    title:
+      "To declare a variable that is a string, the text must be placed inside of _______ ?",
     choices: [
-      "placeholder 1",
-      "placeholder 2",
-      "placeholder 3",
-      "placeholder 4",
+      "curly brackets",
+      "parenthesis",
+      "quotation marks",
+      "exclamimation points",
     ],
-    answer: "placeholder 1",
+    answer: "quotation marks",
   },
   {
-    title: "Test Question 2",
-    choices: [
-      "placeholder 1",
-      "placeholder 2",
-      "placeholder 3",
-      "placeholder 4",
-    ],
-    answer: "placeholder 1",
+    title: "a true or false statement is also referred to as?",
+    choices: ["a string", "a variable", "a boolean", "an array"],
+    answer: "a boolean",
   },
   {
-    title: "Test Question 3",
-    choices: [
-      "placeholder 1",
-      "placeholder 2",
-      "placeholder 3",
-      "placeholder 4",
-    ],
-    answer: "placeholder 1",
+    title: "What property returns the number of characters in a string?",
+    choices: [".length", ".number", "Math.", ".characters"],
+    answer: ".length",
   },
   {
-    title: "Test Question 4",
-    choices: [
-      "placeholder 1",
-      "placeholder 2",
-      "placeholder 3",
-      "placeholder 4",
-    ],
-    answer: "placeholder 1",
+    title: "developers use what tool for debugging and logging to the console?",
+    choices: ["debugger", "logger", "HTML", "console.log"],
+    answer: "console.log",
   },
   {
-    title: "Test Question 5",
-    choices: [
-      "placeholder 1",
-      "placeholder 2",
-      "placeholder 3",
-      "placeholder 4",
-    ],
-    answer: "placeholder 1",
+    title: "What gives a website functionality?",
+    choices: ["CSS", "Javascript", "functions", "navbar"],
+    answer: "Javascript",
   },
 ];
