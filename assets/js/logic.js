@@ -63,7 +63,7 @@ function getQuestion() {
 
 function questionClick(event) {
   var buttonEl = event.target;
-  // if the clicked element is not a choice button, do  nothing.
+  // check for button click, if they click dead space do nothing
   if (!buttonEl.matches(".choice")) {
     return;
   }
