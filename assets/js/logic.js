@@ -78,7 +78,7 @@ function questionClick(event) {
     timerEl.textContent = time;
   }
 
-  // flash right/wrong feedback on page for half a second
+  // feedback - need to rehide
   if (buttonEl.value !== questions[currentQuestionIndex].answer) {
     feedbackEl.removeAttribute("class");
     var createEl = document.createElement("div");
@@ -91,9 +91,6 @@ function questionClick(event) {
   feedbackEl.append(createEl);
   // move to next question
   currentQuestionIndex++;
-
-  //log to make sure we are progessing through questions
-  //console.log(currentQuestionIndex);
 
   // check if we've run out of questions or if time ran out?
   if (time <= 0 || questions.length === currentQuestionIndex) {
@@ -150,9 +147,9 @@ function saveHighscore() {
       score: time,
       initials: initials,
     };
-    //logging new score to see if it wokrs.
+    //logging new score to see if it works
     console.log(newScore);
-    // save to localstorage - not a function in browser?
+    // save to localstorage combine array
     highscores.push(newScore);
     //logging highscore
     console.log(highscores);
